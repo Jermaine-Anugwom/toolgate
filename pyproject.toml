@@ -10,7 +10,7 @@ requires-python = ">=3.12"
 dependencies = ["pydantic>=2.8,<3"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.3,<9", "ruff>=0.6,<1"]
+dev = ["pytest>=9.0.3,<10", "ruff>=0.6,<1"]
 
 [project.scripts]
 toolgate = "toolgate.cli:main"

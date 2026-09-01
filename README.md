@@ -11,7 +11,7 @@ Agents should not turn a plausible plan into an irreversible external action wit
 
 ## The proof
 
-Scoped capabilities, risk classification, approval tokens, idempotency keys, and audit records.
+Trusted-principal scopes, risk classes, HMAC-authenticated approvals bound to actor/tool/arguments/expiry, and a SQLite idempotency ledger that consumes each side-effect key once.
 
 ## Why this is forward deployed
 
@@ -38,7 +38,7 @@ flowchart LR
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e '.[dev]'
+python -m pip install -c constraints.txt -e '.[dev]'
 pytest -q
 toolgate
 ```
