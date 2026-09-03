@@ -1,0 +1,9 @@
+{
+  "synthetic": true,
+  "decision": {
+    "allowed": true,
+    "state": "execute",
+    "reason": "policy satisfied",
+    "audit_id": "3375aacfa50d"
+  }
+}

@@ -5,6 +5,23 @@
 > All people, organizations, records, measurements, and outcomes in this
 > repository are synthetic.
 
+![ToolGate terminal run showing a synthetic authorization decision and audit ID; no message was sent](docs/toolgate-terminal.jpg)
+
+## Run it locally
+
+Requires Git and Python 3.12. Initial setup downloads dependencies; no model key is needed.
+
+```bash
+git clone https://github.com/Jermaine-Anugwom/toolgate.git
+cd toolgate
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -c constraints.txt -e '.[dev]'
+toolgate
+```
+
+The CLI prints a JSON authorization decision for a synthetic request. It does not send a message or execute an external action. The screenshot is captured from this command; audit IDs may differ between runs. See the [capture record](docs/terminal-capture.md).
+
 ## The operational problem
 
 Agents should not turn a plausible plan into an irreversible external action without policy controls.
@@ -33,17 +50,15 @@ flowchart LR
   G --> H[Execute + audit ID]
 ```
 
-## Quickstart
+## Run the tests
+
+With the environment above active:
 
 ```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
-python -m pip install -c constraints.txt -e '.[dev]'
 pytest -q
-toolgate
 ```
 
-No API key or network connection is required.
+Tests and the CLI run locally without a model provider after dependencies are installed.
 
 ## Evaluation and limitations
 
